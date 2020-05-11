@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "get_next_line.h"
 
 char	*ft_strsub(char *s, unsigned int start, size_t len)
 {
@@ -7,7 +7,7 @@ char	*ft_strsub(char *s, unsigned int start, size_t len)
 
 	i = 0;
 	new = NULL;
-	if (s && (ft_strlen(s) - start) >= len)
+	if (s && (strlen(s) - start) >= len)
 	{
 		if ((new = (char *)malloc(len + 1)))
 		{

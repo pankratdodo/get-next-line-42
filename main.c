@@ -7,7 +7,7 @@ int			main(int ac, char **av)
 
 	if (ac != 2  && ac != 3)
 		return (ft_error("Введите один файл для чтения"));
-	if (!ft_strcmp(av[1], "-hex") && ac == 3)
+	if (!strcmp(av[1], "-hex") && ac == 3)
 	{
 		if ((fd = open(av[2], O_RDONLY)) == -1)
 			return (ft_error("Не удалось открыть файл"));

@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "get_next_line.h"
 
 char		*ft_strjoin(char *s1, char *s2, int to_free)
 {
@@ -10,7 +10,7 @@ char		*ft_strjoin(char *s1, char *s2, int to_free)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	if (!(new = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	if (!(new = (char *)malloc(sizeof(char) * (strlen(s1) + strlen(s2) + 1))))
 		on_crash();
 	while (s1[i])
 	{

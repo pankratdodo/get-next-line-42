@@ -25,13 +25,13 @@ int				ft_str_fd(char **str, char **line, int fd, int res)
 	{
 		if (res == BUFF_SIZE)
 			return (get_next_line(fd, line));
-		*line = ft_strdup(str[fd]);
+		*line = strdup(str[fd]);
 		ft_strdel(&str[fd]);
 	}
 	else if (str[fd][i] == '\n')
 	{
 		*line = ft_strsub(str[fd], 0, i);
-		src = ft_strdup(str[fd] + i + 1);
+		src = strdup(str[fd] + i + 1);
 		ft_strdel(&str[fd]);
 		str[fd] = src;
 		if (str[fd][0] == '\0')
@@ -46,6 +46,8 @@ int				get_next_line(int const fd, char **line)
 	char		buff[BUFF_SIZE + 1];
 	int			chten;
 
+	if (BUFF_SIZE < 1 || BUFF_SIZE > 1000000)
+		return (ft_error("Неверный размер BUFF_SIZE"));
 	if (fd < 0 || line == NULL || (read(fd, NULL, 0) < 0))
 		return (-1);
 	while ((chten = read(fd, buff, BUFF_SIZE)))
@@ -54,7 +56,7 @@ int				get_next_line(int const fd, char **line)
 		if (str[fd] == NULL)
 			str[fd] = ft_strnew(1);
 		str[fd] = ft_strjoin(str[fd], buff, 1);
-		if (ft_strchr(buff, '\n'))
+		if (strchr(buff, '\n'))
 			break ;
 	}
 	if (chten < 0)

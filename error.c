@@ -2,7 +2,7 @@
 
 void		*on_crash()
 {
-	write(2, "Malloc error\n", ft_strlen("Malloc error\n"));
+	dprintf(2, "Malloc error\n");
 	exit(-1);
 }
 
